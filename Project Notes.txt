@@ -90,3 +90,23 @@ steps:
         - pip install pydantic[email]
     6. Freeze requirements :
         - pip freeze > requirements.txt
+        - pip install -r requirements.txt
+
+Code space linux (PostgreSQL setup):
+1. update all packages:
+    - sudo apt udpdate
+2. Install PostgreSQL
+    - sudo apt install -y postgresql postgresql-contrib
+3. start PostgreSQL server
+    - sudo service postgresql start
+4. To know status of PostgreSQL server
+    - sudo service postgresql status
+5. Switch to PostgreS user
+    - sudo -u postgres psql
+6. connect to PostgreSQL
+    - sudo su - postgres
+    - psql
+6. Change the password
+    - ALTER USER postgres WITH PASSWORD 'your_secure_password';
+6. To see table structure
+    -  \d tasks 
