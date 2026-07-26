@@ -1,0 +1,386 @@
+/* ==========================
+   GLOBAL
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+    background:#f5f7fb;
+    color:#333;
+}
+
+.app{
+    width:65%;
+    max-width:900px;
+    margin:40px auto;
+}
+
+.app h1{
+    text-align:center;
+    margin-bottom:35px;
+    font-size:48px;
+    font-weight:700;
+}
+
+/* ==========================
+   REGISTER FORM
+========================== */
+
+.register-container{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    margin-bottom:35px;
+}
+
+.register-container h2{
+    white-space:nowrap;
+}
+
+.register-container input{
+    flex:1;
+    height:50px;
+    padding:0 18px;
+
+    border:1px solid #dcdcdc;
+    border-radius:10px;
+
+    font-size:17px;
+    outline:none;
+
+    transition:.3s;
+}
+
+.register-container input:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 8px rgba(37,99,235,.15);
+}
+
+.register-container button{
+
+    height:50px;
+
+    padding:0 28px;
+
+    border:none;
+    border-radius:10px;
+
+    background:#2563eb;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.register-container button:hover{
+    background:#1d4ed8;
+}
+
+/* ==========================
+   TASK SECTION
+========================== */
+
+.task-section-title{
+    margin:30px 0 20px;
+    font-size:34px;
+}
+
+/* ==========================
+   DASHBOARD
+========================== */
+
+.dashboard{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:20px;
+    margin:30px 0;
+}
+
+.card{
+    background:#fff;
+    padding:20px;
+    border-radius:12px;
+    text-align:center;
+    box-shadow:0 4px 10px rgba(0,0,0,.08);
+}
+
+.card h2{
+
+    font-size:42px;
+
+    color:#2563eb;
+
+    margin-bottom:10px;
+}
+
+.card p{
+
+    color:#666;
+
+    font-size:18px;
+
+    font-weight:600;
+}
+
+/* ==========================
+   FILTER BUTTONS
+========================== */
+
+.filter-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    margin-bottom:30px;
+}
+
+.filter-buttons button {
+    padding: 12px 25px;
+    border: 2px solid #2563eb;
+    border-radius: 25px;
+    background: white;
+    color: #2563eb;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.filter-buttons button:hover {
+    background: #2563eb;
+    color: white;
+}
+
+/* Selected Button */
+.filter-buttons button.active {
+    background: #2563eb;
+    color: white;
+    border-color: #2563eb;
+}
+
+/* ==========================
+   TASK CARD
+========================== */
+
+.task-card{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:25px 30px;
+
+    margin-bottom:20px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+    transition:.3s;
+}
+
+.task-card:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 10px 20px rgba(0,0,0,.12);
+}
+
+/* ==========================
+   TASK INFO
+========================== */
+
+.task-info{
+
+    flex:1;
+}
+
+.task-info h3{
+
+    font-size:28px;
+
+    margin-bottom:12px;
+
+    color:#222;
+}
+
+.task-info p{
+
+    font-size:17px;
+
+    color:#666;
+}
+
+/* completed task */
+
+.completed{
+
+    text-decoration:line-through;
+
+    color:#999;
+}
+
+/* ==========================
+   TASK ACTIONS
+========================== */
+
+.task-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+}
+
+.checkbox{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    font-size:17px;
+
+    font-weight:500;
+
+    margin-right:15px;
+}
+
+.checkbox input{
+
+    width:20px;
+
+    height:20px;
+
+    cursor:pointer;
+}
+
+.divider{
+
+    width:1px;
+
+    height:40px;
+
+    background:#ddd;
+}
+
+/* ==========================
+   BUTTONS
+========================== */
+
+.edit-btn,
+.delete-btn{
+
+    padding:10px 22px;
+
+    border-radius:8px;
+
+    border:none;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    color:white;
+
+    transition:.3s;
+}
+
+.edit-btn{
+
+    background:#2563eb;
+}
+
+.edit-btn:hover{
+
+    background:#1d4ed8;
+}
+
+.delete-btn{
+
+    background:#dc2626;
+}
+
+.delete-btn:hover{
+
+    background:#b91c1c;
+}
+
+/* ==========================
+   EMPTY MESSAGE
+========================== */
+
+.empty-message{
+
+    text-align:center;
+
+    margin-top:40px;
+
+    font-size:20px;
+
+    color:#777;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:900px){
+
+    .register-container{
+
+        flex-direction:column;
+
+        align-items:stretch;
+    }
+
+    .dashboard{
+
+        flex-direction:column;
+    }
+
+    .task-card{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:20px;
+    }
+
+    .task-actions{
+
+        width:100%;
+
+        justify-content:space-between;
+
+        flex-wrap:wrap;
+    }
+
+    .filter-buttons{
+
+        flex-wrap:wrap;
+    }
+}
