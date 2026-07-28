@@ -7,6 +7,6 @@ const api = axios.create({
     },
 });
 
-console.log("Axios Base URL:", api.defaults.baseURL);
+// console.log("Axios Base URL:", api.defaults.baseURL);
 
 export default api;
