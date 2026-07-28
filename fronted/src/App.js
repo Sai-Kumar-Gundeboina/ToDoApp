@@ -43,6 +43,8 @@ function App() {
     try{
       await updateTask(editIndex, updatedTask);
       loadTasks();
+      setEditIndex(-1);
+      setEditTask(null);
     }catch(error){
       console.log(error);
     }
@@ -61,11 +63,11 @@ function App() {
   }
 
   const handleToggleCompleted = (index) =>{
-    const updatedTasks = tasks.map((task, i)=>{
-      if (i===index){
+    const updatedTasks = tasks.map((task)=>{
+      if (task.id===index){
         return {
           ...task,
-          completed: !task.completed,
+          status: !task.status,
         }
       }
       return task;
@@ -74,8 +76,8 @@ function App() {
   }
   const handleEditTask = (index) =>{
     setEditIndex(index);
-    setEditTask(tasks[index]);
-    
+    const task = tasks.find((task)=> task.id === index);
+    setEditTask(task);
   }
 
   const handleResetForm = ()=>{
@@ -88,18 +90,18 @@ function App() {
 
   const totalTasks = tasks.length;
   const completedTasks = tasks.filter(
-    task => task.completed
+    task => task.status
   ).length;
 
   const pendingTasks = tasks.filter(
-    task => !task.completed
+    task => !task.status
   ).length;
 
   const filteredTasks = tasks.filter(task =>{
     if (filter === "COMPLETED")
-      return task.completed;
+      return task.status;
     if (filter === "PENDING")
-      return !task.completed;
+      return !task.status;
     return true;
   })
 

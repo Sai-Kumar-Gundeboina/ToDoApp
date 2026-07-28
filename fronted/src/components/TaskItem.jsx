@@ -4,7 +4,7 @@ export default function TaskItem({task, index, onDeleteTask, onToggleCompleted, 
   return (
     <div className='task-card'>
         <div className='task-info'>
-            <h3 style={{textDecoration: task.completed
+            <h3 style={{textDecoration: task.status
                         ? "line-through"
                         : "none",
                 }}>{task.task_name}</h3>
@@ -14,7 +14,7 @@ export default function TaskItem({task, index, onDeleteTask, onToggleCompleted, 
             <label className='checkbox'>
                 <input
                     type='checkbox'
-                    checked = {task.completed}
+                    checked = {task.status}
                     onChange= {()=>onToggleCompleted(index)}
                 />
                 Completed

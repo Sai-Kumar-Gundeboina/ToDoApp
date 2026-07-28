@@ -13,7 +13,7 @@ function RegisterTask({onAddTask, onUpdateTask, editTask, onResetForm}) {
     const task = {
         task_name,
         deadline,
-        completed: editTask ? editTask.completed: false,
+        status: editTask ? editTask.status: false,
     }
     if (editTask)
     {
@@ -28,7 +28,7 @@ function RegisterTask({onAddTask, onUpdateTask, editTask, onResetForm}) {
   }
   useEffect(()=>{
     if(editTask){
-        setTaskName(editTask.taskName);
+        setTaskName(editTask.task_name);
         setDeadline(editTask.deadline);
     }
   },[editTask])
