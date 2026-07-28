@@ -128,3 +128,83 @@ Replace local state operations with API calls:
 Phase 3
 Replace the Complete/Pending toggle with the backend API.
 Add loading and error handling.
+
+
+Deployment at aws:
+==================
+systemcd : service Creation
+Details needed:
+    => pwd
+    => which python
+    => which uvicorn
+create systemcd file
+    => sudo nano /etc/systemd/system/fastapi.service
+
+    """
+        [Unit]
+        Description=FastAPI Todo Application
+        After=network.target
+
+        [Service]
+        User=ubuntu
+        Group=ubuntu
+
+        WorkingDirectory=/home/ubuntu/apps/ToDoApp/Backend
+
+        Environment="PATH=/home/ubuntu/apps/ToDoApp/Backend/venv/bin"
+
+        ExecStart=/home/ubuntu/apps/ToDoApp/Backend/venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8000
+
+        Restart=always
+        RestartSec=5
+
+        [Install]
+        WantedBy=multi-user.target
+    """
+    Reload systemd
+        => sudo systemctl daemon-reload
+    Enable the service
+        => sudo systemctl enable fastapi
+    Start the service
+        => sudo systemctl start fastapi
+    Check the status
+        => sudo systemctl status fastapi
+    
+Nginx file setup:
+    Step 1: Install Nginx
+        sudo apt update
+        sudo apt install nginx -y
+    Step 2: Start Nginx
+        sudo systemctl start nginx
+    Step 3: Enable it on boot
+        sudo systemctl enable nginx
+    Step 4: Check its status
+        sudo systemctl status nginx
+        press q to close
+
+    ip address need to Change
+        sudo nano /etc/nginx/sites-available/todoapp
+        sudo systemctl restart nginx
+    Elastic IP: 13.234.4.203
+    final url nginx: http://13.234.4.203/docs
+
+deploying react on s3:
+    - Build the React Application
+        - npm run build
+        It will create build folder inside frontend folder
+    - Create S3 Bucket
+    - upload the builde folder to bucket
+    - Enable Static Website Hosting (in properties)
+    - Bucket Policy (in permissions)
+        {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                "Sid": "PublicRead",
+                "Effect": "Allow",
+                "Principal": "*",
+                "Action": "s3:GetObject",
+                "Resource": "arn:aws:s3:::YOUR_BUCKET_NAME/*"
+                }
+            ]
+        }
