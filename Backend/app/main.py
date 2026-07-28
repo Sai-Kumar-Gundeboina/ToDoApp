@@ -15,7 +15,7 @@ app.include_router(task_router)
 origins = [
     "https://upgraded-lamp-4pgpg9p5xvf755-3000.app.github.dev",
     "http://localhost:3000",
-    "http://todo-react-frontend-123456.s3-website.ap-south-1.amazonaws.com/",
+    "http://todo-react-frontend-123456.s3-website.ap-south-1.amazonaws.com",
 ]
 
 app.add_middleware(
