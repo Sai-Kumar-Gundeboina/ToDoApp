@@ -185,6 +185,7 @@ Nginx file setup:
     ip address need to Change
         sudo nano /etc/nginx/sites-available/todoapp
         sudo systemctl restart nginx
+        sudo systemctl restart fastapi
     Elastic IP: 13.234.4.203
     final url nginx: http://13.234.4.203/docs
 
