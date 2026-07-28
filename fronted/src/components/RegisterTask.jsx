@@ -2,16 +2,16 @@ import React, { useEffect } from 'react'
 import { useState } from 'react';
 
 function RegisterTask({onAddTask, onUpdateTask, editTask, onResetForm}) {
-    const[taskName, setTaskName] = useState("");
+    const[task_name, setTaskName] = useState("");
   const[deadline, setDeadline] = useState("");
   const handleSubmit = ()=>{
-    if (taskName.trim() === "" || deadline === "")
+    if (task_name.trim() === "" || deadline === "")
     {
       alert("Enter Valid Task name and deadline")
       return;
     }
     const task = {
-        taskName,
+        task_name,
         deadline,
         completed: editTask ? editTask.completed: false,
     }
@@ -39,7 +39,7 @@ function RegisterTask({onAddTask, onUpdateTask, editTask, onResetForm}) {
         <input 
           type='text' 
           placeholder='Task Name'
-          value={taskName}
+          value={task_name}
           onChange={(e)=>{setTaskName(e.target.value.toUpperCase())}}
         />
         <br/>

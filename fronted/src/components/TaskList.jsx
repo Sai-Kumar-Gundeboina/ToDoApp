@@ -25,11 +25,11 @@ export default function TaskList({tasks, onDeleteTask, onToggleCompleted, onEdit
         { tasks.length === 0 ?(
             <p>No Tasks Available</p>
         ) : (
-            tasks.map((task, index)=>(
+            tasks.map((task)=>(
                 <TaskItem 
-                    key= {index} 
+                    key= {task.id} 
                     task = {task} 
-                    index = {index} 
+                    index = {task.id} 
                     onDeleteTask = {onDeleteTask}
                     onToggleCompleted = {onToggleCompleted}
                     onEditTask = {onEditTask}

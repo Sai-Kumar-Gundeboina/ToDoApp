@@ -4,6 +4,7 @@ from app.database import Base
 from app.database import engine
 from app.routers.task_router import router as task_router
 from app.models.task import Task
+from fastapi.middleware.cors import CORSMiddleware
 
 Base.metadata.create_all(bind=engine)
 
@@ -11,6 +12,17 @@ app = FastAPI(title="Todo API")
 
 app.include_router(task_router)
 
+origins = [
+    "https://upgraded-lamp-4pgpg9p5xvf755-3000.app.github.dev",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 @app.get("/")
 def home():
     return {

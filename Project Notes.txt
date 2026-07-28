@@ -2,9 +2,10 @@ Creation of React app
 ======================
 1. install node.js (using browser)
 2. create react app
-    1. """ npx create-react-app frontend """
-    2. """ cd frontend """
-    3. """ npm run """
+    1. npx create-react-app frontend 
+    2. cd frontend 
+    3. npm start 
+    4. npm install (to install dependencies in new PC)
 Learnings of React:
     - Each component should be used for single purpose
     - useEffect() to synchronize component state with props.
@@ -110,3 +111,20 @@ Code space linux (PostgreSQL setup):
     - ALTER USER postgres WITH PASSWORD 'your_secure_password';
 6. To see table structure
     -  \d tasks 
+
+Integration Plan
+Phase 1
+✅ Install Axios
+✅ Create a central API service
+✅ Configure the base URL
+Phase 2
+
+Replace local state operations with API calls:
+
+✅ Load all tasks when the app starts (GET /tasks)
+✅ Add task (POST /tasks)
+✅ Update task (PUT /tasks/{id})
+✅ Delete task (DELETE /tasks/{id})
+Phase 3
+Replace the Complete/Pending toggle with the backend API.
+Add loading and error handling.

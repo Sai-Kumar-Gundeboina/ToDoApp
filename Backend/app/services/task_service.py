@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 from fastapi import HTTPException
-from app.repository.task_repository import TaskRepository
+from app.repositories.task_repository import TaskRepository
 from app.schemas.task import TaskCreate, TaskUpdate
 from app.exceptions.task_exception import TaskNotFoundException
 

@@ -7,7 +7,7 @@ export default function TaskItem({task, index, onDeleteTask, onToggleCompleted, 
             <h3 style={{textDecoration: task.completed
                         ? "line-through"
                         : "none",
-                }}>{task.taskName}</h3>
+                }}>{task.task_name}</h3>
         <p>📅 Deadline: {task.deadline} </p>
         </div>
         <div className='task-actions'>
