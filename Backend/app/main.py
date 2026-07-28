@@ -14,6 +14,7 @@ app.include_router(task_router)
 
 origins = [
     "https://upgraded-lamp-4pgpg9p5xvf755-3000.app.github.dev",
+    "http://localhost:3000",
 ]
 
 app.add_middleware(
